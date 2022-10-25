@@ -18,7 +18,7 @@ app.post("/posts", async (req, res) => {
 		const { title } = req.body;
 		posts[id] = { title: title, id };
 
-		await axios.post("http://event-bus-srv:4005", {
+		await axios.post("http://event-bus-srv:4005/events", {
 			type: "PostCreated",
 			data: { id, title },
 		});
